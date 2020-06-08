@@ -67,7 +67,7 @@ void predict_grade_absolute(int score)
 
     else
     {
-        cout << "\nYou have achieved the impossible. S grade in Soft Skills. People will constructs statues in your honor\n";
+        cout << "\nYou have achieved the impossible. S grade in an absolute graded course. People will construct statues in your honor\n";
     }
 }
 void calculate(int option)
@@ -101,16 +101,35 @@ void calculate(int option)
         predict_grade_absolute(final_sum);
         return;
     }
+    else if (option == 8)
+    {
+        cout << "Enter Predicted Project Review marks out of 100 (20+30+50): ";
+        cin >> proj_internals;
+        final_sum = proj_internals;
+        cout << "Final Score for this subject out of 100 is " << final_sum;
+        predict_grade_absolute(final_sum);
+    }
+    else if (option == 9)
+    {
+        cout<< "Enter marks scored in internals for Theory Component(Out of 60): ";
+        cin >> sum;
+        cout << "Enter Predicted Project Review marks out of 100 (20+30+50): ";
+        cin >> proj_internals;
+        final_sum = (sum / 60) * 50 + (proj_internals / 100) * 50;
+        cout << "Final Score for this subject out of 100 is " << final_sum;
+        predict_grade_absolute(final_sum);
+        return;
+    }
+    cout << "Enter CAT1 Marks weightage (Out of 15): ";
+    cin >> CAT1;
+    cout << "Enter CAT2 Marks weightage (Out of 15): ";
+    cin >> CAT2;
     cout << "Enter DA1 Marks: ";
     cin >> DA1;
     cout << "Enter DA2 Marks: ";
     cin >> DA2;
     cout << "Enter DA3 Marks: ";
     cin >> DA3;
-    cout << "Enter CAT1 Marks weightage (Out of 15): ";
-    cin >> CAT1;
-    cout << "Enter CAT2 Marks weightage (Out of 15): ";
-    cin >> CAT2;
     cout << "Enter Additional Learning Marks (Enter 0 if not applicable): ";
     cin >> ADD;
     sum = DA1 + DA2 + DA3 + CAT1 + CAT2;
@@ -154,13 +173,22 @@ void calculate(int option)
         predict_grade(final_sum);
         return;
     }
+    else if (option == 7)
+    {
+        cout << "Enter Predicted Project Review marks out of 100 (20+30+50): ";
+        cin >> proj_internals;
+        final_sum = (final_sum / 100) * 50 + (proj_internals / 100) * 50;
+        cout << "Final Score for this subject out of 100 is " << final_sum;
+        predict_grade(final_sum);
+        return;
+    }
 }
 
 int main()
 {
     int option;
 choice:
-    cout << "Enter the type of course:\n\n1) Theory Only (any no of credits) \n2) Theory + Lab (4 credits) \n3) Theory + Project (4 credits) \n4) TARP \n5) Theory + Lab + Project (4 credits)\n6) Soft Skills";
+    cout << "Enter the type of course:\n\n1) Theory Only (any no of credits) \n2) Theory + Lab (4 credits) \n3) Theory + Project (4 credits) \n4) TARP \n5) Theory + Lab + Project (4 credits)\n6) Soft Skills\n7) Theory + Project (2 credits)\n8) IIP (PHY1901)\n9) IIP (PHY1999)\n";
     cout << endl;
     cin >> option;
     switch (option)
@@ -183,6 +211,14 @@ choice:
     case 6:
         calculate(6);
         break;
+    case 7:
+        calculate(7);
+        break;
+    case 8:
+        calculate(8);
+        break;
+    case 9:
+        calculate(9);
     default:
         cout << "Enter a valid option: " << endl;
         goto choice;
