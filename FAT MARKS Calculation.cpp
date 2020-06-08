@@ -111,7 +111,7 @@ void calculate(int option)
     }
     else if (option == 9)
     {
-        cout<< "Enter marks scored in internals for Theory Component(Out of 60): ";
+        cout << "Enter marks scored in internals for Theory Component(Out of 60): ";
         cin >> sum;
         cout << "Enter Predicted Project Review marks out of 100 (20+30+50): ";
         cin >> proj_internals;
@@ -182,15 +182,34 @@ void calculate(int option)
         predict_grade(final_sum);
         return;
     }
+    else if (option == 10)
+    {
+        cout << "Enter Predicted Project Review marks out of 100 (20+30+50): ";
+        cin >> proj_internals;
+        final_sum = (final_sum / 100) * 66.666 + (proj_internals / 100) * 33.3333;
+        cout << "Final Score for this subject out of 100 is " << final_sum;
+        predict_grade(final_sum);
+        return;
+    }
+
+    else if (option == 11)
+    {
+        cout << "Enter Lab internal marks out of 60: ";
+        cin >> lab_internals;
+        final_sum = (final_sum / 100) * 66.6666 + (lab_internals / 60) * 33.3333;
+        cout << "Final Score for this subject out of 100 is " << final_sum;
+        predict_grade(final_sum);
+        return;
+    }
 }
 
 int main()
 {
-    cout<<"Created By Robin Thomas From VIT Chennai"<<endl;
-    cout<<"Grades shown here are rough estimates only. Final grades will differ based on class average"<<endl;
+    cout << "Created By Robin Thomas From VIT Chennai" << endl;
+    cout << "Grades shown here are rough estimates only. Final grades will differ based on class average" << endl;
     int option;
 choice:
-    cout << "Enter the type of course:\n\n1) Theory Only (any no of credits) \n2) Theory + Lab (4 credits) \n3) Theory + Project (4 credits) \n4) TARP \n5) Theory + Lab + Project (4 credits)\n6) Soft Skills\n7) Theory + Project (2 credits)\n8) IIP (PHY1901)\n9) IIP (PHY1999)\n";
+    cout << "Enter the type of course:\n\n1) Theory Only (any no of credits) \n2) Theory + Lab (3 + 1 = 4 credits) \n3) Theory + Project (3 + 1 = 4 credits) \n4) TARP \n5) Theory + Lab + Project (2 + 1 + 1 = 4 credits)\n6) Soft Skills (1 credit)\n7) Theory + Project (1 + 1 = 2 credits)\n8) IIP (PHY1901) (1 credit)\n9) IIP (PHY1999) (2 credits)\n10) Theory + Project (2 + 1 = 3 Credits) \n11) Theory + Lab (2 + 1 = 3 Credits)\n";
     cout << endl;
     cin >> option;
     switch (option)
@@ -221,6 +240,13 @@ choice:
         break;
     case 9:
         calculate(9);
+        break;
+    case 10:
+        calculate(10);
+        break;
+    case 11:
+        calculate(11);
+        break;   
     default:
         cout << "Enter a valid option: " << endl;
         goto choice;
