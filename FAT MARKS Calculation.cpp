@@ -5,7 +5,7 @@ void predict_grade(int score)
 {
     if (score < 50)
     {
-        cout << "\nRegistration Time\n";
+        cout << "\nRe-registration Time\n";
     }
     else if (score >= 50 && score < 55)
     {
