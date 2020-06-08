@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 void predict_grade(int score)
@@ -70,7 +71,7 @@ void predict_grade_absolute(int score)
         cout << "\nYou have achieved the impossible. S grade in an absolute graded course. People will construct statues in your honor\n";
     }
 }
-void calculate(int option)
+void calculate(int option,string name)
 {
     float DA1, DA2, DA3, CAT1, CAT2, ADD, sum, final_sum, quiz1, quiz2;
     float lab_internals, proj_internals;
@@ -81,7 +82,7 @@ void calculate(int option)
         cout << "Enter marks scored in theory out of 100: ";
         cin >> final_sum;
         final_sum = (final_sum / 100) * 33.3334 + (proj_internals / 100) * 66.667;
-        cout << "Final Score for this subject out of 100 is " << final_sum;
+        cout << "Final Score for "<<name<<" out of 100 is " << final_sum;
         predict_grade(final_sum);
         return;
     }
@@ -97,7 +98,7 @@ void calculate(int option)
         cin >> quiz2;
         sum = CAT1 + CAT2 + quiz1 + quiz2;
         final_sum = (sum / 60) * 100;
-        cout << "Final Score for this subject out of 100 is " << final_sum;
+        cout << "Final Score for "<<name<<" out of 100 is " << final_sum;
         predict_grade_absolute(final_sum);
         return;
     }
@@ -106,7 +107,7 @@ void calculate(int option)
         cout << "Enter Predicted Project Review marks out of 100 (20+30+50): ";
         cin >> proj_internals;
         final_sum = proj_internals;
-        cout << "Final Score for this subject out of 100 is " << final_sum;
+        cout << "Final Score for "<<name<<" out of 100 is " << final_sum;
         predict_grade_absolute(final_sum);
     }
     else if (option == 9)
@@ -116,7 +117,7 @@ void calculate(int option)
         cout << "Enter Predicted Project Review marks out of 100 (20+30+50): ";
         cin >> proj_internals;
         final_sum = (sum / 60) * 50 + (proj_internals / 100) * 50;
-        cout << "Final Score for this subject out of 100 is " << final_sum;
+        cout << "Final Score for "<<name<<" out of 100 is " << final_sum;
         predict_grade_absolute(final_sum);
         return;
     }
@@ -140,7 +141,7 @@ void calculate(int option)
     final_sum += sum;
     if (option == 1)
     {
-        cout << "Final Score for this subject out of 100 is " << final_sum;
+        cout << "Final Score for "<<name<<" out of 100 is " << final_sum;
         predict_grade(final_sum);
         return;
     }
@@ -149,7 +150,7 @@ void calculate(int option)
         cout << "Enter Lab internal marks out of 60: ";
         cin >> lab_internals;
         final_sum = (final_sum / 100) * 75 + (lab_internals / 60) * 25;
-        cout << "Final Score for this subject out of 100 is " << final_sum;
+        cout << "Final Score for "<<name<<" out of 100 is " << final_sum;
         predict_grade(final_sum);
         return;
     }
@@ -158,7 +159,7 @@ void calculate(int option)
         cout << "Enter Predicted Project Review marks out of 100 (20+30+50): ";
         cin >> proj_internals;
         final_sum = (final_sum / 100) * 75 + (proj_internals / 100) * 25;
-        cout << "Final Score for this subject out of 100 is " << final_sum;
+        cout << "Final Score for "<<name<<" out of 100 is " << final_sum;
         predict_grade(final_sum);
         return;
     }
@@ -169,7 +170,7 @@ void calculate(int option)
         cout << "Enter Predicted Project Review marks out of 100 (20+30+50): ";
         cin >> proj_internals;
         final_sum = (final_sum / 100) * 50 + (proj_internals / 100) * 25 + (lab_internals / 60) * 25;
-        cout << "Final Score for this subject out of 100 is " << final_sum;
+        cout << "Final Score for "<<name<<" out of 100 is " << final_sum;
         predict_grade(final_sum);
         return;
     }
@@ -178,7 +179,7 @@ void calculate(int option)
         cout << "Enter Predicted Project Review marks out of 100 (20+30+50): ";
         cin >> proj_internals;
         final_sum = (final_sum / 100) * 50 + (proj_internals / 100) * 50;
-        cout << "Final Score for this subject out of 100 is " << final_sum;
+        cout << "Final Score for "<<name<<" out of 100 is " << final_sum;
         predict_grade(final_sum);
         return;
     }
@@ -187,7 +188,7 @@ void calculate(int option)
         cout << "Enter Predicted Project Review marks out of 100 (20+30+50): ";
         cin >> proj_internals;
         final_sum = (final_sum / 100) * 66.666 + (proj_internals / 100) * 33.3333;
-        cout << "Final Score for this subject out of 100 is " << final_sum;
+        cout << "Final Score for "<<name<<" out of 100 is " << final_sum;
         predict_grade(final_sum);
         return;
     }
@@ -197,7 +198,7 @@ void calculate(int option)
         cout << "Enter Lab internal marks out of 60: ";
         cin >> lab_internals;
         final_sum = (final_sum / 100) * 66.6666 + (lab_internals / 60) * 33.3333;
-        cout << "Final Score for this subject out of 100 is " << final_sum;
+        cout << "Final Score for "<<name<<" out of 100 is " << final_sum;
         predict_grade(final_sum);
         return;
     }
@@ -208,44 +209,47 @@ int main()
     cout << "Created By Robin Thomas From VIT Chennai" << endl;
     cout << "Grades shown here are rough estimates only. Final grades will differ based on class average" << endl;
     int option;
-choice:
+    string name;
+    choice:
+    cout<< "Enter Name of Course: ";
+    cin>>name;
     cout << "Enter the type of course:\n\n1) Theory Only (any no of credits) \n2) Theory + Lab (3 + 1 = 4 credits) \n3) Theory + Project (3 + 1 = 4 credits) \n4) TARP \n5) Theory + Lab + Project (2 + 1 + 1 = 4 credits)\n6) Soft Skills (1 credit)\n7) Theory + Project (1 + 1 = 2 credits)\n8) IIP (PHY1901) (1 credit)\n9) IIP (PHY1999) (2 credits)\n10) Theory + Project (2 + 1 = 3 Credits) \n11) Theory + Lab (2 + 1 = 3 Credits)\n";
     cout << endl;
     cin >> option;
     switch (option)
     {
     case 1:
-        calculate(1);
+        calculate(1,name);
         break;
     case 2:
-        calculate(2);
+        calculate(2,name);
         break;
     case 3:
-        calculate(3);
+        calculate(3,name);
         break;
     case 4:
-        calculate(4);
+        calculate(4,name);
         break;
     case 5:
-        calculate(5);
+        calculate(5,name);
         break;
     case 6:
-        calculate(6);
+        calculate(6,name);
         break;
     case 7:
-        calculate(7);
+        calculate(7,name);
         break;
     case 8:
-        calculate(8);
+        calculate(8,name);
         break;
     case 9:
-        calculate(9);
+        calculate(9,name);
         break;
     case 10:
-        calculate(10);
+        calculate(10,name);
         break;
     case 11:
-        calculate(11);
+        calculate(11,name);
         break;   
     default:
         cout << "Enter a valid option: " << endl;
