@@ -186,6 +186,8 @@ void calculate(int option)
 
 int main()
 {
+    cout<<"Created By Robin Thomas From VIT Chennai"<<endl;
+    cout<<"Grades shown here are rough estimates only. Final grades will differ based on class average"<<endl;
     int option;
 choice:
     cout << "Enter the type of course:\n\n1) Theory Only (any no of credits) \n2) Theory + Lab (4 credits) \n3) Theory + Project (4 credits) \n4) TARP \n5) Theory + Lab + Project (4 credits)\n6) Soft Skills\n7) Theory + Project (2 credits)\n8) IIP (PHY1901)\n9) IIP (PHY1999)\n";
