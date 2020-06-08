@@ -9,27 +9,32 @@ void predict_grade(int score)
     }
     else if (score >= 50 && score < 55)
     {
-        cout << "\nYou got lucky. E grade\n";
+        cout << "\nYou got lucky. Most likely an E grade\n";
     }
     else if (score >= 55 && score < 60)
     {
-        cout << "\nLooks like someone's getting the D\n";
+        cout << "\nLooks like someone's probably getting the D\n";
     }
     else if (score >= 60 && score < 70)
     {
-        cout << "\nC grade incoming\n";
+        cout << "\nC grade incoming. B if your class average is really really low (very unlikely)\n";
     }
     else if (score >= 70 && score < 80)
     {
-        cout << "\nLooks like you're in the middle of the pack. Expect either a B or an A if your class average is really low\n";
+        cout << "\nLooks like you're in the middle of the pack. Expect either a B or an A if your class average is really low. Might drop to C if class average is really high.\n";
     }
     else if (score >= 80 && score < 90)
     {
-        cout << "\nCongratulations on getting the A\n";
+        cout << "\nYou're most likely getting an A. But if your class average is low , this might be an S. On the flip side , if class average is high then you are might be getting a B\n";
+    }
+
+     else if (score >= 90 && score < 94)
+    {
+        cout << "\nYou're most likely getting an S. If your class average is insanely high then you might be getting an A\n";
     }
     else
     {
-        cout << "\nYou're the reason your class average is so high. S grade on the charts\n";
+        cout << "\nYou're the reason your class average is so high. S grade on the charts . But don't quote me on this , stranger things have happend before. *cough* *French* *cough* *cough*\n";
     }
 }
 
@@ -107,7 +112,7 @@ int main()
 {
     int option;
 choice:
-    cout << "Enter the type of course:\n\n1) Theory Only (any no of credis) \n2) Theory + Lab (4 credits) \n3) Theory + Project (4 credits) \n4) TARP \n5) Theory + Lab + Project (4 credits)\n";
+    cout << "Enter the type of course:\n\n1) Theory Only (any no of credits) \n2) Theory + Lab (4 credits) \n3) Theory + Project (4 credits) \n4) TARP \n5) Theory + Lab + Project (4 credits)\n";
     cout << endl;
     cin >> option;
     switch (option)
