@@ -54,9 +54,9 @@ void calculate(int option)
     cin >> DA2;
     cout << "Enter DA3 Marks: ";
     cin >> DA3;
-    cout << "Enter CAT1 Marks: ";
+    cout << "Enter CAT1 Marks weightage (Out of 15): ";
     cin >> CAT1;
-    cout << "Enter CAT2 Marks: ";
+    cout << "Enter CAT2 Marks weightage (Out of 15): ";
     cin >> CAT2;
     cout << "Enter Additional Learning Marks (Enter 0 if not applicable): ";
     cin >> ADD;
