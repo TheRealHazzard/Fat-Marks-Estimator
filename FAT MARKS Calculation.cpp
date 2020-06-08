@@ -28,7 +28,7 @@ void predict_grade(int score)
         cout << "\nYou're most likely getting an A. But if your class average is low , this might be an S. On the flip side , if class average is high then you are might be getting a B\n";
     }
 
-     else if (score >= 90 && score < 94)
+    else if (score >= 90 && score < 94)
     {
         cout << "\nYou're most likely getting an S. If your class average is insanely high then you might be getting an A\n";
     }
@@ -38,9 +38,41 @@ void predict_grade(int score)
     }
 }
 
+void predict_grade_absolute(int score)
+{
+    if (score < 50)
+    {
+        cout << "\nRe-registration Time\n";
+    }
+    else if (score >= 50 && score < 55)
+    {
+        cout << "\nYou got lucky. E grade\n";
+    }
+    else if (score >= 55 && score < 60)
+    {
+        cout << "\nLooks like someone's getting the D\n";
+    }
+    else if (score >= 60 && score < 70)
+    {
+        cout << "\nC grade incoming\n";
+    }
+    else if (score >= 70 && score < 80)
+    {
+        cout << "\nLooks like you're in the middle of the pack. B Grade\n";
+    }
+    else if (score >= 80 && score < 90)
+    {
+        cout << "\nYou're getting an A\n";
+    }
+
+    else
+    {
+        cout << "\nYou have achieved the impossible. S grade in Soft Skills. People will constructs statues in your honor\n";
+    }
+}
 void calculate(int option)
 {
-    float DA1, DA2, DA3, CAT1, CAT2, ADD, sum, final_sum;
+    float DA1, DA2, DA3, CAT1, CAT2, ADD, sum, final_sum, quiz1, quiz2;
     float lab_internals, proj_internals;
     if (option == 4)
     {
@@ -51,6 +83,22 @@ void calculate(int option)
         final_sum = (final_sum / 100) * 33.3334 + (proj_internals / 100) * 66.667;
         cout << "Final Score for this subject out of 100 is " << final_sum;
         predict_grade(final_sum);
+        return;
+    }
+    else if (option == 6)
+    {
+        cout << "Enter CAT1 Marks weightage (Out of 15): ";
+        cin >> CAT1;
+        cout << "Enter CAT2 Marks weightage (Out of 15): ";
+        cin >> CAT2;
+        cout << "Enter Quiz-1 Marks (Out of 15): ";
+        cin >> quiz1;
+        cout << "Enter Quiz-2 Marks (Out of 15): ";
+        cin >> quiz2;
+        sum = CAT1 + CAT2 + quiz1 + quiz2;
+        final_sum = (sum / 60) * 100;
+        cout << "Final Score for this subject out of 100 is " << final_sum;
+        predict_grade_absolute(final_sum);
         return;
     }
     cout << "Enter DA1 Marks: ";
@@ -112,7 +160,7 @@ int main()
 {
     int option;
 choice:
-    cout << "Enter the type of course:\n\n1) Theory Only (any no of credits) \n2) Theory + Lab (4 credits) \n3) Theory + Project (4 credits) \n4) TARP \n5) Theory + Lab + Project (4 credits)\n";
+    cout << "Enter the type of course:\n\n1) Theory Only (any no of credits) \n2) Theory + Lab (4 credits) \n3) Theory + Project (4 credits) \n4) TARP \n5) Theory + Lab + Project (4 credits)\n6) Soft Skills";
     cout << endl;
     cin >> option;
     switch (option)
@@ -131,6 +179,9 @@ choice:
         break;
     case 5:
         calculate(5);
+        break;
+    case 6:
+        calculate(6);
         break;
     default:
         cout << "Enter a valid option: " << endl;
